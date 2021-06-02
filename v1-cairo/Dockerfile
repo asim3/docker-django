@@ -13,7 +13,8 @@ RUN apk add --no-cache \
     gettext \
     zlib-dev \
     linux-headers \
-    ca-certificates
+    ca-certificates \
+    cairo
 
 RUN adduser -D django_user
 
