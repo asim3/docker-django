@@ -4,18 +4,17 @@ ENV PYTHONUNBUFFERED 1
 
 ADD install-and-run-django.sh /
 
-RUN apk add --no-cache --virtual .build-deps \
-    ca-certificates \
+RUN apk add --no-cache \
     gcc \
     postgresql-dev \
-    linux-headers \
     musl-dev \
     libffi-dev \
     jpeg-dev \
+    gettext \
     zlib-dev \
-    cairo
+    linux-headers \
+    ca-certificates
 
-RUN apk del .build-deps
 
 RUN adduser -D django_user
 
