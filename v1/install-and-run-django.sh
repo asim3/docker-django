@@ -1,5 +1,5 @@
 cd /your_project_root \
-  && pip3 install -r ./requirements.txt \
+  && pip3 install --no-cache-dir -r ./requirements.txt \
   && python3 manage.py makemigrations \
   && python3 manage.py migrate \
   && python3 manage.py runserver 0.0.0.0:8000

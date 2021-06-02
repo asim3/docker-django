@@ -2,7 +2,7 @@ SHELL=/bin/bash
 
 
 DOCKER_USER?=asim3
-DOCKER_IMAGE?=my-project-name
+DOCKER_IMAGE?=django
 DOCKER_TAG?=latest
 
 
@@ -10,7 +10,7 @@ main: build shell
 
 
 build:
-	@ docker image build -t ${DOCKER_USER}/${DOCKER_IMAGE}:${DOCKER_TAG} .
+	@ cd v1 && docker image build -t ${DOCKER_USER}/${DOCKER_IMAGE}:${DOCKER_TAG} .
 
 
 shell:
