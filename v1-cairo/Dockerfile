@@ -20,4 +20,8 @@ RUN adduser -D django_user
 
 USER django_user
 
+RUN mkdir /opt/code
+
+WORKDIR /opt/code
+
 CMD ["/bin/sh","-c","/install-and-run-django.sh"]

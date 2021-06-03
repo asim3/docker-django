@@ -1,4 +1,4 @@
-cd /your_project_root \
+cd /opt/code \
   && pip3 install --no-cache-dir --quiet -r ./requirements.txt \
   && python3 manage.py makemigrations \
   && python3 manage.py migrate \
