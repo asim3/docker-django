@@ -22,5 +22,7 @@ push: build
 
 
 build-all:
-	for appname in ${LIST}; do make build DOCKER_TAG=$${appname}; done;
-	for appname in ${LIST}; do make push DOCKER_TAG=$${appname}; done;
+	for f in $$(ls */Dockerfile); do  \
+		make push DOCKER_TAG=$${f%/Dockerfile}; \
+	done;
+	

@@ -1,6 +1,10 @@
 FROM python:3-alpine
 
-ENV PYTHONUNBUFFERED 1
+ENV VIRTUAL_ENV=/opt/venv
+
+RUN python3 -m venv $VIRTUAL_ENV
+
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 ADD install-and-run-django.sh /
 
@@ -16,12 +20,12 @@ RUN apk add --no-cache \
     ca-certificates \
     cairo
 
-RUN adduser -D django_user
-
-USER django_user
-
 RUN mkdir /opt/code
 
 WORKDIR /opt/code
+
+RUN adduser -D django_user
+
+USER django_user
 
 CMD ["/bin/sh","-c","/install-and-run-django.sh"]
